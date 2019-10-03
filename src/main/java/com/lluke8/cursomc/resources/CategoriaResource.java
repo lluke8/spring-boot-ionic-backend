@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lluke8.cursomc.domain.Categoria;
 import com.lluke8.cursomc.services.CategoriaService;
+import com.lluke8.cursomc.services.exceptions.ObjectNotFoundException;
+
+
 
 @RestController
 @RequestMapping(value="/categorias")
@@ -21,7 +24,7 @@ public class CategoriaResource {
 	private CategoriaService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	public ResponseEntity<?> find(@PathVariable Integer id) throws ObjectNotFoundException {
 		
 		
 		Categoria obj = service.find(id);
