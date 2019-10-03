@@ -10,24 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lluke8.cursomc.domain.Categoria;
-import com.lluke8.cursomc.services.CategoriaService;
-import com.lluke8.cursomc.services.exceptions.ObjectNotFoundException;
-
-
+import com.lluke8.cursomc.domain.Produto;
+import com.lluke8.cursomc.services.ProdutoService;
 
 @RestController
-@RequestMapping(value="/categorias")
-public class CategoriaResource {
+@RequestMapping(value="/produtos")
+public class ProdutoResource {
 	
 	@Autowired
-	private CategoriaService service;
+	private ProdutoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) throws ObjectNotFoundException {
+	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
 		
-		Categoria obj = service.find(id);
+		Produto obj = service.find(id);
 		
 		return ResponseEntity.ok().body(obj);
 	}
