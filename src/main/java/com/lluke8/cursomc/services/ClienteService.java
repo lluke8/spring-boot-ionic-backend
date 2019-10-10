@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.lluke8.cursomc.domain.Cliente;
-import com.lluke8.cursomc.domain.Cliente;
 import com.lluke8.cursomc.dto.ClienteDTO;
 import com.lluke8.cursomc.repositories.ClienteRepository;
 import com.lluke8.cursomc.services.exceptions.DataIntegrityException;
@@ -42,7 +41,7 @@ public class ClienteService {
 		repo.deleteById(id);
 		}
 		catch(DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possivel excluir uma categoria que tenha produtos!");	
+			throw new DataIntegrityException("Não é possivel excluir porque há entidades relacionadas");	
 		}
 	}
 	
